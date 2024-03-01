@@ -25,8 +25,6 @@ export async function fetchRevenue() {
 
         const data = await sql<Revenue>`SELECT * FROM revenue`
 
-        console.log('Data fetch completed after 3 seconds.')
-
         return data.rows
     } catch (error) {
         console.error('Database Error:', error)
@@ -93,7 +91,7 @@ export async function fetchCardData() {
     }
 }
 
-const ITEMS_PER_PAGE = 6
+const ITEMS_PER_PAGE = 10
 
 export async function fetchFilteredInvoices(
     query: string,
@@ -191,7 +189,6 @@ export async function fetchCustomers() {
       FROM customers
       ORDER BY name ASC
     `
-
         const customers = data.rows
         return customers
     } catch (err) {
